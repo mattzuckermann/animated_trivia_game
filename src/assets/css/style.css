@@ -1,0 +1,181 @@
+body {
+  /* COLORS */
+  --black: #121629;
+  --white: #fffffe;
+  --green: #f3cf80;
+  --blue: #b8c1ec;
+  --darkBlue: #232946;
+  --grey: #eebbc3;
+  /* INTENTIONS */
+  --background: var(--black);
+  --buttonColor: var(--green);
+  --buttonTextColor: var(--black);
+  --lineColor: var(--grey);
+  /* Type */
+  --headingFont: Lora, serif;
+  --bodyFont: Ubuntu, sans-serif;
+  /* Styles */
+  --line: solid 2px var(--lineColor);
+  /* 18px */
+  --h1: 3.052rem;
+  --h2: 2.441rem;
+  --h3: 1.953rem;
+  --h4: 1.563rem;
+  --h5: 1.25rem;
+  --h6: 1rem;
+  --smallText: 0.8rem;
+  /* Elevation */
+  --level-1: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --level-2: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  /* Positioning */
+  --containerPadding: 2.5%;
+  --headerHeight: 3rem;
+  --borderRadius: 10px;
+  background-color: var(--background);
+  background-image: url("/Homepage.webp");
+  font-family: var(--bodyFont);
+  color: var(--white);
+}
+
+/* Type Scale */
+html {
+  --baseFontSize: 112.5%;
+  font-size: var(--baseFontSize);
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/* For loop going through varying header sizes */
+h1 {
+  position: relative;
+  font-size: var(--h1);
+  font-family: var(--headingFont);
+  font-weight: 400;
+  line-height: 1.15;
+}
+h1 a {
+  color: white;
+  text-decoration: none;
+}
+
+h2 {
+  position: relative;
+  font-size: var(--h2);
+  font-family: var(--headingFont);
+  font-weight: 400;
+  line-height: 1.15;
+}
+h2 a {
+  color: white;
+  text-decoration: none;
+}
+
+h3 {
+  position: relative;
+  font-size: var(--h3);
+  font-family: var(--headingFont);
+  font-weight: 400;
+  line-height: 1.15;
+}
+h3 a {
+  color: white;
+  text-decoration: none;
+}
+
+h4 {
+  position: relative;
+  font-size: var(--h4);
+  font-family: var(--headingFont);
+  font-weight: 400;
+  line-height: 1.15;
+}
+h4 a {
+  color: white;
+  text-decoration: none;
+}
+
+h5 {
+  position: relative;
+  font-size: var(--h5);
+  font-family: var(--headingFont);
+  font-weight: 400;
+  line-height: 1.15;
+}
+h5 a {
+  color: white;
+  text-decoration: none;
+}
+
+h6 {
+  position: relative;
+  font-size: var(--h6);
+  font-family: var(--headingFont);
+  font-weight: 400;
+  line-height: 1.15;
+}
+h6 a {
+  color: white;
+  text-decoration: none;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  font-size: var(--smallText);
+}
+label input {
+  margin: 10px 0px 10px 5px;
+  padding: 4px 5px;
+  border: var(--line);
+  border-radius: 4px;
+}
+
+hr {
+  margin-top: 45px;
+  border-top: var(--line);
+}
+
+button {
+  appearance: none;
+  color: var(--buttonTextColor);
+  background-color: var(--buttonColor);
+  margin: 10px 0px;
+  border: none;
+  border-radius: 10px;
+  padding: 5px 25px;
+  box-shadow: var(--level-1);
+  transition: 0.3s ease-in-out box-shadow;
+}
+
+button:hover {
+  box-shadow: var(--level-2);
+}
+
+button[disabled] {
+  opacity: 0.4;
+}
+
+a {
+  color: var(--white);
+  background-image: linear-gradient(180deg, transparent 80%, var(--blue) 0);
+}
+
+p {
+  margin: 15px 0px;
+}
+
+/* Specialty classes */
+.flex-centered {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.unstyled-link {
+  background-image: none;
+}
+
+/*# sourceMappingURL=style.css.map */
