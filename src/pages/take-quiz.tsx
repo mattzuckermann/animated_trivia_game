@@ -23,10 +23,6 @@ const TakeQuiz = () => {
       <SEO title="Quiz" />
       <h1>Quiz</h1>
       {isLoading ? <div>Loading...</div> : <Quiz data={Context.data} />}
-      <br />
-      <br />
-      <br />
-      <Link to="/">Go back to the homepage</Link>
     </Layout>
   )
 }

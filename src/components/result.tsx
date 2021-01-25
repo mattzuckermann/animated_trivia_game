@@ -1,64 +1,34 @@
-import React, { useEffect, useContext } from "react"
+import React, { useState, useContext } from "react"
 import { Link } from "gatsby"
 import { GlobalContext } from "../layouts/rootLayout"
 import { Context, QuestionType } from "../@types/context"
-
-const decodeHtml = html => {
-  var txt = document.createElement("textarea")
-  txt.innerHTML = html
-  return txt.value
-}
+import { Answer } from "./answer"
 
 export const Result = ({ data }) => {
   const { answers } = useContext(GlobalContext) as Context
-
-  const calculateQuizPercentage = quizQuestions => {
+  const calculateQuizPercentage = (quizQuestions: QuestionType[]) => {
     let quizPoints = 0
     quizQuestions.forEach((question: QuestionType, index: number) => {
       if (question.correct_answer === answers[index]) quizPoints++
     })
-    return `${(quizPoints / answers.length) * 100}%`
+    return {
+      percentage: `${(quizPoints / answers.length) * 100}%`,
+      points: quizPoints,
+    }
   }
-
-  useEffect(() => {
-    calculateQuizPercentage(data.results)
-  }, [])
+  const [result] = useState(calculateQuizPercentage(data.results))
 
   return (
     <>
-      <h1>You got a score of {calculateQuizPercentage(data.results)}</h1>
+      <h1>
+        You got a score of {result.percentage} ({result.points}/{answers.length}
+        )
+      </h1>
       <h3>
-        <Link to="/take-quiz">Play again?</Link>
+        <Link to="/">Play again?</Link>
       </h3>
       {data?.results?.map((question: QuestionType, index: number) => {
-        return (
-          <section key={index} style={{ margin: "50px 0px" }}>
-            <h3>Question {index + 1}</h3>
-            <p>{decodeHtml(question.question)}</p>
-            <p>
-              <small>
-                You chose
-                <b> {answers[index]}</b>
-              </small>
-            </p>
-            <p>
-              <small>
-                The correct answer was<b> {question.correct_answer}</b>
-              </small>
-            </p>
-            <p>
-              <small>
-                You got it
-                <span>
-                  {" "}
-                  {answers[index] === question.correct_answer
-                    ? "right!"
-                    : "wrong."}
-                </span>
-              </small>
-            </p>
-          </section>
-        )
+        return <Answer key={index} question={question} index={index} />
       })}
     </>
   )

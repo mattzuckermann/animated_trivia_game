@@ -35,7 +35,6 @@ body {
   --borderRadius: 10px;
 
   background-color: var(--background);
-  background-image: url("/Homepage.webp");
   font-family: var(--bodyFont);
   color: var(--white);
 }
@@ -75,11 +74,6 @@ label {
   }
 }
 
-hr {
-  margin-top: 45px;
-  border-top: var(--line);
-}
-
 button {
   appearance: none;
   color: var(--buttonTextColor);
@@ -115,10 +109,16 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
-
   flex-direction: column;
 }
 
 .unstyled-link {
   background-image: none;
+}
+
+.pointer-cursor {
+  cursor: pointer;
+  background-color: var(--darkBlue);
+  border-radius: 10px;
+  padding: 12px;
 }
